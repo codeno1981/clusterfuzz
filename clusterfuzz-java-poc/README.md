@@ -31,10 +31,10 @@ This document tracks the progress of migrating ClusterFuzz from Python to Java u
 - [x] OssFuzzProjectInfo (Extended project information)
 
 ### Current Implementation Stats
-- **Total Lines of Code**: 11,983+
+- **Total Lines of Code**: 13,471+
 - **JPA Entity Models**: 16 complete models with full validation
 - **Repository Interfaces**: 14 with 400+ optimized database queries
-- **Service Classes**: 7 with comprehensive business logic
+- **Service Classes**: 10 with comprehensive business logic
 - **Enum Classes**: 2 supporting permission and auto-CC management
 
 ### Project Structure
@@ -44,7 +44,7 @@ src/main/java/com/google/clusterfuzz/
 ├── datastore/
 │   ├── model/                          # 16 JPA entity models
 │   └── repository/                     # 14 repository interfaces
-├── service/                            # 7 service classes
+├── service/                            # 10 service classes
 └── web/
     └── controller/                     # REST API endpoints
 ```
@@ -56,7 +56,47 @@ src/main/java/com/google/clusterfuzz/
 - **JPA/Hibernate**: Object-relational mapping
 - **PostgreSQL**: Primary database
 - **Maven**: Build and dependency management
-- **gRPC + Protocol Buffers**: For distributed communication
+
+## Recent Progress (Latest Updates)
+
+### Infrastructure & Security Models Added
+- **JobTemplate**: Template management with usage tracking and validation
+- **Heartbeat**: Bot health monitoring with resource usage and task tracking
+- **Lock**: Distributed locking mechanism with renewal and conflict resolution
+- **ExternalUserPermission**: External user access control with auto-CC preferences
+- **Admin**: Admin user management with role-based access and activity tracking
+
+### Service Layer Enhancements
+- **JobTemplateService**: Template lifecycle management, cloning, and statistics
+- **HeartbeatService**: Bot monitoring, resource tracking, and maintenance operations
+- **LockService**: Distributed locking, renewal mechanisms, and conflict detection
+- **ExternalUserPermissionService**: Permission management, validation, and auto-CC handling
+- **AdminService**: Admin authentication, role management, and access control
+
+### Key Features Implemented
+- **Comprehensive Permission System**: Entity-based access control with prefix matching
+- **Bot Health Monitoring**: Real-time status tracking with resource usage metrics
+- **Distributed Locking**: Thread-safe resource coordination with automatic cleanup
+- **Template Management**: Reusable job configurations with usage analytics
+- **Admin Access Control**: Role-based authentication with activity monitoring
+
+## Next Steps
+
+### Pending Models (19/35 remaining)
+- **CoverageInformation**: Code coverage tracking and analysis
+- **BuildMetadata**: Build information and artifact management
+- **Issue**: Bug tracking and management
+- **IssueTracker**: External issue tracker integration
+- **TestcaseVariant**: Test case variations and mutations
+- **Notification**: System notifications and alerts
+- **And 13 more core models...**
+
+### Upcoming Features
+- REST API controllers for all models
+- Comprehensive unit and integration tests
+- Performance optimization and caching
+- Security enhancements and audit logging
+- Monitoring and observability integration
 
 ## Key Advantages of Java Version
 
