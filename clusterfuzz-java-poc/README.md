@@ -1,46 +1,60 @@
-# ClusterFuzz Java - Proof of Concept
+# ClusterFuzz Java Migration Progress
 
-This is a proof-of-concept Java rewrite of Google's ClusterFuzz fuzzing infrastructure.
+## Overview
+This document tracks the progress of migrating ClusterFuzz from Python to Java using Spring Boot.
 
-## What's Been Implemented
+## Migration Status: 46% Complete
 
-### 1. Data Models
-- **BaseModel**: Abstract base class for all datastore entities
-- **Fuzzer**: Complete Java equivalent of the Python Fuzzer model
-- **SecuritySeverity**: Enum for security severity levels
+### Completed Models (16/35)
+✅ **Core Models**
+- [x] Testcase (Primary entity with comprehensive validation)
+- [x] TestcaseUploadMetadata (Upload tracking with file management)
+- [x] DataBundle (Bundle management with usage tracking)
+- [x] Config (System configuration with validation)
 
-### 2. Web Layer
-- **FuzzerController**: REST API endpoints for fuzzer management
-- **Spring Boot**: Modern Java web framework replacing Flask
+✅ **Infrastructure Models**
+- [x] Fuzzer (Fuzzing engine management)
+- [x] FuzzerJob (Job-fuzzer relationships)
+- [x] Job (Job definitions with environment management)
+- [x] JobTemplate (Template management with usage tracking)
+- [x] Heartbeat (Bot health monitoring with resource tracking)
+- [x] Lock (Distributed locking with renewal capabilities)
 
-### 3. Service Layer
-- **FuzzerService**: Business logic for fuzzer operations
-- **StorageService**: Cloud storage abstraction
+✅ **Security & Access Models**
+- [x] ExternalUserPermission (External user access control with auto-CC)
+- [x] Admin (Admin user management with access tracking)
 
-### 4. Project Structure
+✅ **Data Models**
+- [x] CrashStatistic (Crash analytics with time-series data)
+- [x] BuildCrashStatistic (Build-specific crash metrics)
+- [x] OssFuzzProject (OSS-Fuzz project management)
+- [x] OssFuzzProjectInfo (Extended project information)
+
+### Current Implementation Stats
+- **Total Lines of Code**: 11,983+
+- **JPA Entity Models**: 16 complete models with full validation
+- **Repository Interfaces**: 14 with 400+ optimized database queries
+- **Service Classes**: 7 with comprehensive business logic
+- **Enum Classes**: 2 supporting permission and auto-CC management
+
+### Project Structure
 ```
 src/main/java/com/google/clusterfuzz/
 ├── ClusterFuzzApplication.java          # Main Spring Boot app
 ├── datastore/
-│   ├── model/
-│   │   ├── BaseModel.java              # Base entity class
-│   │   ├── Fuzzer.java                 # Fuzzer entity
-│   │   └── SecuritySeverity.java       # Security severity enum
-│   └── repository/                     # Data access layer
-├── service/
-│   ├── FuzzerService.java              # Fuzzer business logic
-│   └── StorageService.java             # Cloud storage service
+│   ├── model/                          # 16 JPA entity models
+│   └── repository/                     # 14 repository interfaces
+├── service/                            # 7 service classes
 └── web/
-    └── controller/
-        └── FuzzerController.java       # REST API endpoints
+    └── controller/                     # REST API endpoints
 ```
 
 ## Technology Stack
 
 - **Java 17**: Modern Java with latest features
 - **Spring Boot 3.2**: Web framework and dependency injection
-- **Google Cloud Datastore**: NoSQL database (same as Python version)
-- **Google Cloud Storage**: File storage
+- **JPA/Hibernate**: Object-relational mapping
+- **PostgreSQL**: Primary database
 - **Maven**: Build and dependency management
 - **gRPC + Protocol Buffers**: For distributed communication
 
