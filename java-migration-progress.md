@@ -23,6 +23,9 @@
 - [x] **Testcase** - Complete JPA entity with all 50+ fields
 - [x] **Job** - Complete JPA entity with environment handling
 - [x] **FuzzerJPA** - Complete JPA entity with search capabilities
+- [x] **FuzzTarget** - Fuzzing target configuration with name generation
+- [x] **FuzzTargetJob** - Job-target relationships with execution tracking
+- [x] **FuzzTargetsCount** - Target count tracking per job
 
 #### ✅ Supporting Infrastructure
 - [x] **Environment** - Utility for environment variable parsing
@@ -30,12 +33,17 @@
 - [x] **TestcaseRepository** - Complete data access layer with 25+ queries
 - [x] **FuzzerRepository** - Complete data access layer with 20+ queries
 - [x] **JobRepository** - Complete data access layer with 15+ queries
+- [x] **FuzzTargetRepository** - Complete data access layer with 30+ queries
+- [x] **FuzzTargetJobRepository** - Complete data access layer with 35+ queries
+- [x] **FuzzTargetsCountRepository** - Complete data access layer with 25+ queries
 
 #### ✅ Business Logic Layer
 - [x] **TestcaseService** - Complete service with CRUD operations
+- [x] **FuzzTargetService** - Complete service with target management
 - [x] Duplicate detection logic
 - [x] Security classification handling
 - [x] Triage workflow management
+- [x] Weighted target selection algorithms
 - [x] Statistics and reporting
 
 #### ✅ API Layer
@@ -51,8 +59,9 @@
 ### Current Sprint: Core Models Completion
 
 #### Data Models (Week 5-6)
-- [ ] **FuzzTarget** - Fuzzing target configuration
-- [ ] **FuzzTargetJob** - Job-target relationships
+- [x] **FuzzTarget** - Fuzzing target configuration ✅
+- [x] **FuzzTargetJob** - Job-target relationships ✅
+- [x] **FuzzTargetsCount** - Target count tracking ✅
 - [ ] **TestcaseUploadMetadata** - Upload tracking
 - [ ] **DataBundle** - Data bundle management
 - [ ] **Config** - System configuration
@@ -92,21 +101,21 @@
 
 ### Lines of Code Converted
 - **Python Original**: 151,340 lines (645 files)
-- **Java Converted**: ~3,500 lines (12 files)
-- **Conversion Rate**: 2.3%
+- **Java Converted**: ~5,200 lines (18 files)
+- **Conversion Rate**: 3.4%
 
 ### Model Conversion Status
 - **Total Models**: 35 identified
-- **Completed**: 5 models (14%)
+- **Completed**: 8 models (23%)
 - **In Progress**: 3 models (9%)
 - **Remaining**: 27 models (77%)
 
 ### Feature Completeness
-- **Data Layer**: 40% complete
-- **Business Logic**: 25% complete
+- **Data Layer**: 55% complete
+- **Business Logic**: 35% complete
 - **API Layer**: 30% complete
 - **Testing**: 5% complete
-- **Documentation**: 60% complete
+- **Documentation**: 65% complete
 
 ---
 
